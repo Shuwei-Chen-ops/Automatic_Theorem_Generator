@@ -129,11 +129,11 @@ s(g(a), h(b, c))
 3. The program automatically parses and validates all inputs.
     
 
-### Generating Theorems
+### Generator Theorems
 
 1. Ensure all inputs are valid (show ✅).
     
-2. Click **“Generate”**.
+2. Click **“Generator”**.
     
 3. The program produces theorems and outputs CNF clauses.
     
