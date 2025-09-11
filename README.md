@@ -1,7 +1,7 @@
 
 ---
 
-# Automated Theorem Generator
+# Automated Theorem Generator △1
 
 **User Manual**
 
@@ -20,23 +20,23 @@
 
 ## Program Overview
 
-The **Automated Theorem Generator** is a tool based on the _Contradiction Separation_.  
-It automatically generates theorems from logical formulas provided by the user.  
+The **Automated Theorem Generator** is a tool based on the _Triangle Standard Contradiction Separation_.  
+It automatically generates theorems from logical literals provided by the user.  
 The program features a graphical user interface, making it simple to operate and suitable for both research and teaching.
 
 ---
 
 ## Features
 
-- **Formula Parsing**: Parses logical formulas such as `p(a)` or `~q(b)`.
+- **Literal Parsing**: Parses logical literals such as `p(a)` or `~q(b)`.
     
 - **Input Validation**: Checks whether inputs follow syntax and logical rules.
     
-- **Theorem Generation**: Produces all possible permutations of the input formulas and generates theorems.
+- **Theorem Generation**: Produces of the input literals and generates theorems.
     
 - **CNF Output**: Converts results into CNF (Conjunctive Normal Form) compliant with the TPTP format.
     
-- **Paging and Browsing**: Allows navigation through theorems generated from different permutations.
+- **Paging and Browsing**: Allows navigation through theorems generated.
     
 
 ---
@@ -45,7 +45,7 @@ The program features a graphical user interface, making it simple to operate and
 
 ### Input Format
 
-Formulas must follow first-order logic syntax:
+Formulas must follow propositional logic and first-order logic syntax:
 
 ```
 Predicate(term1, term2, ...)
@@ -53,7 +53,7 @@ Predicate(term1, term2, ...)
 
 - Predicates must begin with a letter; letters, digits, and underscores are allowed.
     
-- Terms can be variables (e.g., X, Y, Z) or constants (e.g., a, b, c).
+- The terms can be constants (e.g., a, b, c) or variables (e.g., X, Y, Z) or function terms (e.g., f(X,Y),g(X,Y,Z,U)).
     
 - Negation is supported: prefix the predicate with `~` (e.g., `~p(a)`).
     
@@ -72,55 +72,33 @@ s(g(a), h(b, c))
 
 ### Validation Rules
 
-1. **Unique Predicates**
+1. **No Identical Predicate Symbols**
     
     - Invalid: `p(a)` and `p(b)`
         
     - Valid: `p(a)` and `q(b)`
         
-2. **No Complementary Pairs**
+2. **No Complementary Predicate Symbols**
     
     - Invalid: `p(a)` and `~p(a)`
         
     - Valid: `p(a)` and `~q(b)`
         
-3. **Consistent Arity**
+3. **Functions With Consistent Metrics**
     
     - Invalid: `f(a)` and `f(a, b)`
         
     - Valid: `f(a)` and `g(a, b)`
         
-4. **No Unifiable Complements**
-    
-    - Invalid: `p(X)` and `~p(a)`
-        
-    - Valid: `p(X)` and `~q(Y)`
-        
-
 ---
 
 ## How to Use
 
-### Single Input Mode
+### Literal Input
 
-1. Select **“Single Input”** (default).
+1. Select **“Literal Input”**.
     
-2. Enter a formula in the input box (e.g., `p(a)`).
-    
-3. Press **Enter** to add more lines.
-    
-4. Validation status appears on the right:
-    
-    - ✅ Valid input
-        
-    - ❌ Invalid input
-        
-
-### Multiple Input Mode
-
-1. Select **“Multiple Inputs”**.
-    
-2. Enter multiple formulas separated by semicolons, e.g.:
+2. Enter multiple literals separated by semicolons, e.g.:
     
     ```
     p(a); ~q(b); r(f(X)); s(g(Y), Z)
@@ -131,7 +109,7 @@ s(g(a), h(b, c))
 
 ### Generator Theorems
 
-1. Ensure all inputs are valid (show ✅).
+1. Ensure all inputs are valid.
     
 2. Click **“Generator”**.
     
@@ -158,35 +136,6 @@ Located at the bottom of the interface:
         
     - `>>` Next page
         
-
-### Paging Modes
-
-- **Standard Mode (≤ 10 formulas)**
-    
-    - Shows total pages
-        
-    - Full navigation supported
-        
-- **Large Input Mode (> 10 formulas)**
-    
-    - Displays total pages as “N/A”
-        
-    - Still supports forward/backward navigation
-        
-    - Pages generated on demand
-        
-
-### Navigation Notes
-
-- On the first page, `<<` is disabled.
-    
-- In Standard Mode, on the last page, `>>` is disabled.
-    
-- In Large Input Mode, `>>` is always enabled.
-    
-- Invalid page numbers reset to the current page.
-    
-
 ---
 
 ## FAQ
@@ -197,7 +146,7 @@ Located at the bottom of the interface:
 
 - Check for correct syntax (parentheses, commas).
     
-- Ensure rules (uniqueness, complementarity, consistency) are not violated.
+- Ensure rules (no identical predicate symbols, no complementary predicate symbols, same number of variants for function symbols with the same name) are not violated.
     
 - Refer to the error message, correct the input, and try again.
     
