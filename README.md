@@ -84,7 +84,7 @@ s(g(a), h(b, c))
         
     - Valid: `p(a)` and `~q(b)`
         
-3. **Functions With Consistent Metrics**
+3. **Functions with Consistent Metricity**
     
     - Invalid: `f(a)` and `f(a, b)`
         
